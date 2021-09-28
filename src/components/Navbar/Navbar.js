@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import{ Link } from 'react-router-dom';
+import './Navbar.css';
+import { Button } from './Button';
 
 const Navbar = () => {
     const[click, setClick] = useState(false);
@@ -9,13 +11,13 @@ const Navbar = () => {
     const closeMobileMenu =()=> setClick(false);
 
     const showButton = () =>{
-        if(window.innerWidth <=960){
+        if(window.innerWidth <= 960){
             setButton(false)}
             else{
                 setButton(true)}
             };
     
-    
+    window.addEventListener('resize', showButton);
 
 
     return (
@@ -41,7 +43,8 @@ const Navbar = () => {
                             <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>Sign Up</Link>
                         </li>
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>Sign Up</Button>}
+                    {button && <Button buttonStyle='btn--outline'>Sign Up
+                    </Button>}
                 </div>
             </nav>
         </>
